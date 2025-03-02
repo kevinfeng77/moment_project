@@ -15,12 +15,12 @@ Model Predictions:
 - Median Bias: -0.389449
 
 Last Trade Benchmark:
-- Mean Error: 3.396038
-- Median Error: 1.882608
-- Mean Bias: -0.503067
-- Median Bias: -0.389449
+- Mean Error: 3.818279
+- Median Error: 1.923350
+- Mean Bias: 0.575663
+- Median Bias: 0.241350
 
-  
+  More details can be found in the `pricing-challenge-final.ipynb`
 
 
 - Build a model in the `pricing-challenge.ipynb` notebook to predict a trade’s OAS based on the bond’s previous trades. Benchmark the accuracy of your model relative to the last trade model.
