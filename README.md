@@ -6,25 +6,16 @@ The final model is contained in [`pricing-challenge_final.ipynb`](pricing-challe
 
 ## Description
 
-- **Weighted Average Prediction:**  
-  The model computes a weighted average of the bond's previous trades to predict the current trade's value.
+- At a high-level, the model computes a weighted average of the bond's previous trades to predict the current trade's value.
+- An offset is applied to the previous OAS data based on different trade types
+- Data points are weighted based off the trade type and trade size.
+- The weighted average is then applied on the adjusted OAS data
 
 - **Trade Reclassification:**  
   - Multi-leg trades are reclassified as a single trade.
   - The OAS for these trades is assigned as:
     - The average dealer_dealer price if it exists.
     - Otherwise, the average of all trades.
-
-- **Offset Application:**  
-  An offset is applied to the previous OAS data based on different trade types.
-
-- **Data Weighting:**  
-  Data points are weighted according to:
-  - The trade type.
-  - A categorization of the trade size.
-
-- **Prediction Calculation:**  
-  The weighted average is applied on the newly adjusted OAS using custom trade data weights.
 
 - **Model Training and Validation:**  
   Parameters and underlying ideas were tuned on the training set. The validation set was used solely for evaluating final results.
