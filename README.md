@@ -1,3 +1,5 @@
+The final model is in `pricing-challenge_final.ipynb` and my scratch work is in the other two notebooks.
+
 Description:
 - The model takes a weighted average of the bond's previous trades to output a prediction for the current trade
 - First, the model goes through the previous trade and reclassifies multi-leg trades as a single trade, assinging the OAS of this multi-leg trade to the average dealer_dealer price if it exists and the average of all trades otherwise.
@@ -20,9 +22,11 @@ Last Trade Benchmark:
 - Mean Bias: 0.575663
 - Median Bias: 0.241350
 
-  More details can be found in the `pricing-challenge-final.ipynb`
+More details can be found at the bottom of `pricing-challenge_final.ipynb`.
 
+Discussion:
 
-- Build a model in the `pricing-challenge.ipynb` notebook to predict a trade’s OAS based on the bond’s previous trades. Benchmark the accuracy of your model relative to the last trade model.
-- Either in the notebook or in a separate doc, write a short (less than 1 page) description of how your model works.
-- Include a short discussion of the shortcomings of the model and the dataset. What does your model not incorporate that you think might be important? What does the dataset not include that you think might be important? How would you use those additional data sources?
+My model does not incorporate data about trade frequencies that can be deduced from the ts_diff_hrs column. I believe that some aspect of liquidity here has the potential to fit the weighting of the half life. I also did not really use the quantity data as I just had a naive check as to whether the value was larger than 1,000,000. I also did not check the for mean reverting/following tendencies of the trade price, which could be of use. 
+
+If the data exists, I think market quotes and customer orders that did not get executed can be valuable. Market quotes give us an idea of prices that dealers are likely willing to trade at, and if we see orders in between the market spreads, we can have a idea of levels that are closer to dealer fair values. The simplest way to use the market quote data would be to maintain a midpoint of the quote prices and update this price as quoting levels change. It is also feasible to have more complex price modeling with more data about the volumes and depths of quotes. 
+
